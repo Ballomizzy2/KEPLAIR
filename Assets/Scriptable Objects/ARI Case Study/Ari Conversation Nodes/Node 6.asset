@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6e47f5be4d9804d8e211dda6d2a138, type: 3}
+  m_Name: Node 6
+  m_EditorClassIdentifier: 
+  nodeId: 6
+  speaker: KEPLAIR
+  messageText: 'Here are some resources on polynomials:'
+  options:
+  - optionText: I liked the Khan Academy video. It explained what polynomials are.
+    nextNodeId: 7
+  - optionText: 'The NASA one was confusing. '
+    nextNodeId: 8
+  resources:
+  - link: https://spacemath.gsfc.nasa.gov/stars/6Page104.pdf
+    title: NASA Starlight Calculation
+  - link: https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:quadratics-multiplying-factoring/x2f8bb11595b61c86:multiply-monomial-polynomial/v/polynomials-intro
+    title: 'Khan Academy: Polynomials Intro'
+  - link: https://www.softchalkcloud.com/course/serve/9AsaceGIdDkhjr/html
+    title: College Algebra Course
+  - link: https://www.purposegames.com/game/classifying-polynomials-by-degree
+    title: Classifying Polynomials Game
