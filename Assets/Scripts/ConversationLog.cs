@@ -12,6 +12,8 @@ public class ConversationLog : MonoBehaviour
     [SerializeField] private float offsetY;
     
     [SerializeField] private ScrollRect myScrollRect;
+
+    [SerializeField] private Toggle logToggle;
     
 
     public void StoreLog(string keplair, string learner)
@@ -36,12 +38,17 @@ public class ConversationLog : MonoBehaviour
         learnerLogRect.position = new Vector2(learnerLogRect.position.x, keplairRect.position.y - keplairRect.sizeDelta.y * offsetY);
 
         lastText = learnerLogRect;
-        FocusOnRecentLog();
+        //FocusOnRecentLog();
     }
 
     public void FocusOnRecentLog()
     {
         myScrollRect.verticalNormalizedPosition = 0f;
         Debug.Log("Hii");
+    }
+
+    public void ShowLog()
+    {
+        myScrollRect.gameObject.SetActive(logToggle.isOn);
     }
 }

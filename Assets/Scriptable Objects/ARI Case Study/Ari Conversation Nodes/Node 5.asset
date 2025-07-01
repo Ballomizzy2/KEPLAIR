@@ -25,4 +25,4 @@ MonoBehaviour:
     nextNodeId: -1
   resources: []
   isLearnerProfileActivator: 0
-  isLearningPathShowing: 1
+  isLearningPathShowing: 0

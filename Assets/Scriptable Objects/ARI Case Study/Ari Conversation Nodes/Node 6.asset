@@ -29,3 +29,5 @@ MonoBehaviour:
     title: College Algebra Course
   - link: https://www.purposegames.com/game/classifying-polynomials-by-degree
     title: Classifying Polynomials Game
+  isLearnerProfileActivator: 0
+  isLearningPathShowing: 0

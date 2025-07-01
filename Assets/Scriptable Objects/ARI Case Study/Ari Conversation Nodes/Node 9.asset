@@ -19,3 +19,5 @@ MonoBehaviour:
   - optionText: I love math and science, but some abstract topics trip me up.
     nextNodeId: 10
   resources: []
+  isLearnerProfileActivator: 0
+  isLearningPathShowing: 0

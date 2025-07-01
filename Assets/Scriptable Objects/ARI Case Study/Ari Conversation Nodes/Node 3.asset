@@ -26,3 +26,5 @@ MonoBehaviour:
     title: A blogpost on How Astronauts Use Math
   - link: https://my.vhslearning.org/PublicCourseDescription.aspx?c=535
     title: 'A Virtual High School course: Science in Space'
+  isLearnerProfileActivator: 0
+  isLearningPathShowing: 0

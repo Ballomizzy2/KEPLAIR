@@ -19,3 +19,5 @@ MonoBehaviour:
   - optionText: "Physically okay, mentally\u2026 I struggle under time pressure."
     nextNodeId: 11
   resources: []
+  isLearnerProfileActivator: 0
+  isLearningPathShowing: 0

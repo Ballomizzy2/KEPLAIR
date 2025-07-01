@@ -22,3 +22,5 @@ MonoBehaviour:
   - optionText: Add more goals
     nextNodeId: -1
   resources: []
+  isLearnerProfileActivator: 0
+  isLearningPathShowing: 0

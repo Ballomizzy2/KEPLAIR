@@ -20,3 +20,5 @@ MonoBehaviour:
   - optionText: Sure! What do you want to know?
     nextNodeId: 9
   resources: []
+  isLearnerProfileActivator: 0
+  isLearningPathShowing: 0

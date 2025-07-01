@@ -11,6 +11,7 @@ public class ConversationUI : MonoBehaviour
     public ConversationGraph conversationGraph;
     public ConversationLog conversationLog;
 
+    public WindowSwitchingManager windowSwitchingManager;
     public GameObject leanerActivityWindow;
     public GameObject learnerResourceButton;
 
@@ -28,7 +29,7 @@ public class ConversationUI : MonoBehaviour
         conversationGraph.Initialize();
         currentNode = conversationGraph.GetNodeById("0"); // Start
         DisplayCurrentNode();
-        leanerActivityWindow.SetActive(false);
+        //leanerActivityWindow.SetActive(false);
     }
 
     void DisplayCurrentNode()
@@ -48,6 +49,7 @@ public class ConversationUI : MonoBehaviour
         
         foreach (var resource in currentNode.resources)
         {
+            windowSwitchingManager.OpenWindowTrigger(1);
             leanerActivityWindow.SetActive(true);
             var btn = Instantiate(learnerResourceButton, leanerActivityWindow.transform);
             btn.GetComponent<LearningResourceButton>().SetLink(resource.GetTitle(),  resource.GetLink());
@@ -56,7 +58,11 @@ public class ConversationUI : MonoBehaviour
         if(currentNode.isLearnerProfileActivator)
             learnerProfileWindow.SetActive(true);
         
-        learningPath.SetActive(currentNode.isLearningPathShowing);
+        //learningPath.SetActive(currentNode.isLearningPathShowing);
+        if (currentNode.isLearningPathShowing)
+        {
+            windowSwitchingManager.OpenWindowTrigger(2);
+        }
     }
 
     void OnOptionSelected(ConversationOption option)
@@ -99,10 +105,20 @@ public class ConversationUI : MonoBehaviour
         DisplayCurrentNode();*/
     }
 
-    public void SwitchCamera()
+    public void SwitchCamera(bool reset = false)
     {
-        mainCamera.SetActive(!mainCamera.activeSelf);
-        pathCamera.SetActive(!pathCamera.activeSelf);
+        if (reset)
+        {
+            mainCamera.SetActive(true);
+            pathCamera.SetActive(false);
+         
+        }
+
+        else
+        {
+            mainCamera.SetActive(!mainCamera.activeSelf);
+            pathCamera.SetActive(!pathCamera.activeSelf);
+        }
     }
     
     [System.Serializable]
