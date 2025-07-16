@@ -20,6 +20,6 @@ public class ButtonScaler : MonoBehaviour
     {
         float initialScaleYVal = myRectTransform.sizeDelta.y;
         float newX = (7.5f * childText.text.Length) + 50;
-        myRectTransform.sizeDelta = new Vector2(newX, initialScaleYVal);
+        myRectTransform.sizeDelta = new Vector2(newX, childText.fontSize + 10);
     }
 }

@@ -51,7 +51,7 @@ public class ConversationUI : MonoBehaviour
         {
             windowSwitchingManager.OpenWindowTrigger(1);
             leanerActivityWindow.SetActive(true);
-            var btn = Instantiate(learnerResourceButton, leanerActivityWindow.transform);
+            var btn = Instantiate(learnerResourceButton, leanerActivityWindow.transform.GetChild(0));
             btn.GetComponent<LearningResourceButton>().SetLink(resource.GetTitle(),  resource.GetLink());
         }
         
