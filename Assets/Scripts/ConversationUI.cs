@@ -38,13 +38,17 @@ public class ConversationUI : MonoBehaviour
         speakerText.text = currentNode.speaker;
         messageText.text = currentNode.messageText;
         ClearOptions();
-
+        
+        //conversationLog.InitiateAuxKeplairLog(currentNode.speaker);
+        
+        string optionText = "Options:";
         foreach (var option in currentNode.options)
         {
             var btn = Instantiate(optionButtonPrefab, optionsContainer);
             btn.GetComponentInChildren<TextMeshProUGUI>().text = option.optionText;
             //btn.GetComponent<RectTransform>().ForceUpdateRectTransforms();
             btn.GetComponent<Button>().onClick.AddListener(() => OnOptionSelected(option));
+            optionText = optionText + "\n" + option.optionText;
         }
         
         foreach (var resource in currentNode.resources)
@@ -54,6 +58,7 @@ public class ConversationUI : MonoBehaviour
             var btn = Instantiate(learnerResourceButton, leanerActivityWindow.transform.GetChild(0));
             btn.GetComponent<LearningResourceButton>().SetLink(resource.GetTitle(),  resource.GetLink());
         }
+        conversationLog.StoreLog(currentNode.messageText, optionText);
         
         if(currentNode.isLearnerProfileActivator)
             learnerProfileWindow.SetActive(true);
@@ -69,7 +74,8 @@ public class ConversationUI : MonoBehaviour
     {
         // handle logs
         // Store Log(currentNode.text, option.text)
-        conversationLog.StoreLog(currentNode.messageText, option.optionText);
+        //conversationLog.StoreLog(currentNode.messageText, option.optionText);
+        conversationLog.AppendLastText("\n['" + option.optionText + "' was selected]");
         var next = conversationGraph.GetNodeById(option.nextNodeId);
         if (next != null)
         {
@@ -119,6 +125,23 @@ public class ConversationUI : MonoBehaviour
             mainCamera.SetActive(!mainCamera.activeSelf);
             pathCamera.SetActive(!pathCamera.activeSelf);
         }
+    }
+
+    public void OpenNewTab()
+    {
+        SampleWebView web = FindAnyObjectByType<SampleWebView>();
+        if (web)
+        {
+            //Application.OpenURL(web.Url);
+            TabManager.OpenURLUnfocused(web.Url);
+            CloseWebView();
+        }
+    }
+    public void CloseWebView()
+    {
+        GameObject g = FindAnyObjectByType<WebViewObject>().gameObject;
+        if(g)
+            Destroy(g);
     }
     
     [System.Serializable]

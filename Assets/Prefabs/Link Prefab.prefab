@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d84443e128095b4da590d3387c7c8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  webViewGO: {fileID: 479227482458544439, guid: a5ced7c872a9ced4ebed8a4f1e676409, type: 3}
   buttonTextUI: {fileID: 3397324448354100299}
 --- !u!114 &859258359970886068
 MonoBehaviour:

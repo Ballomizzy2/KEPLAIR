@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,10 +15,17 @@ public class ConversationLog : MonoBehaviour
     [SerializeField] private ScrollRect myScrollRect;
 
     [SerializeField] private Toggle logToggle;
+
+    [SerializeField] private TextMeshProUGUI fakeKeplairLog; 
     
 
     public void StoreLog(string keplair, string learner)
     {
+        // we are creating an auxilliary keplair string that would always be displayed as soon as
+        // the current node is changed in the graph.
+        // as soon as we want to store a log, we disable it immediately.
+        //fakeKeplairLog.gameObject.SetActive(false);
+        
         GameObject keplairLog = Instantiate(keplairLogText, this.transform);
         GameObject learnerLog = Instantiate(learnerLogText, this.transform);
         
@@ -39,6 +47,18 @@ public class ConversationLog : MonoBehaviour
 
         lastText = learnerLogRect;
         //FocusOnRecentLog();
+    }
+
+    public void AppendLastText(string text)
+    {
+        lastText.GetComponent<TextMeshProUGUI>().text += "\n" + text;
+    }
+    public void InitiateAuxKeplairLog(string tempString)
+    {
+        fakeKeplairLog.gameObject.SetActive(true);
+        fakeKeplairLog.text = tempString;
+        RectTransform rt = fakeKeplairLog.gameObject.GetComponent<RectTransform>();
+        rt = lastText;
     }
 
     public void FocusOnRecentLog()

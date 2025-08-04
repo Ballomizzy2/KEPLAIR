@@ -6,6 +6,9 @@ public class KeplairCharacterController : MonoBehaviour
     Animator animator;
     [SerializeField] private GameObject learnerCharacter;
     private Quaternion initialRotation;
+
+    private Vector3 forward, right;
+    private Vector3 initialPosition;
     
     [SerializeField]
     private float rotationSpeed = 1.0f;
@@ -13,7 +16,11 @@ public class KeplairCharacterController : MonoBehaviour
     private void Start()
     {
         initialRotation = transform.rotation;
+        initialPosition = transform.position;
         animator = GetComponent<Animator>();
+
+        forward = transform.forward;
+        right = -transform.right;
     }
 
     public void Speak()
@@ -33,11 +40,14 @@ public class KeplairCharacterController : MonoBehaviour
         
         if (learnerCharacter.activeInHierarchy)
         {
-            transform.LookAt(learnerCharacter.transform);
+            //transform.LookAt(learnerCharacter.transform);
+            transform.forward = right;
         }
         else
         {
-            transform.rotation = initialRotation;
+            //transform.rotation = initialRotation;
+            transform.forward = forward;
+            transform.position = initialPosition;
         }
     }
 }

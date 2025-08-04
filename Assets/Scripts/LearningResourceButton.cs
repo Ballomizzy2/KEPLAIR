@@ -8,6 +8,9 @@ public class LearningResourceButton : MonoBehaviour
     private string buttonText;
     
     [SerializeField]
+    private GameObject webViewGO;
+    
+    [SerializeField]
     private TextMeshProUGUI buttonTextUI;
     
     public void SetLink(string placeholder, string link)
@@ -19,6 +22,17 @@ public class LearningResourceButton : MonoBehaviour
 
     public void OnClick()
     {
-        Application.OpenURL(link);
+        SampleWebView web = Instantiate(webViewGO, transform).GetComponent<SampleWebView>();
+        if (web != null)
+        {
+            web.Url =  link;
+            StartCoroutine(web.Start());
+        }
+        else
+        {
+            Debug.LogError("No WebViewObject found");
+        }
+        
+        //Application.OpenURL(link);
     }
 }

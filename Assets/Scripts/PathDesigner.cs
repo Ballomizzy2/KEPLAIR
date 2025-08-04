@@ -42,10 +42,10 @@ public class PathDesigner : MonoBehaviour
     {
         spline = GetComponent<Spline>();
         //Debug.Log($"Found {renderers.Count} MeshRenderers.");
-        DrawPath();
+        //DrawPath();
     }
 
-    private void DrawPath() 
+    /*private void DrawPath() 
     {
         Material mat = pathCompleteMaterial;
         for (int i = 0; i < majorPathParts.Count; i++) 
@@ -58,5 +58,5 @@ public class PathDesigner : MonoBehaviour
             majorPathParts[i].material = mat;
             minorPathParts[i].material = mat;
         }
-    }
+    }*/
 }
