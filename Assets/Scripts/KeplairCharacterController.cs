@@ -6,6 +6,8 @@ public class KeplairCharacterController : MonoBehaviour
     Animator animator;
     [SerializeField] private GameObject learnerCharacter;
     private Quaternion initialRotation;
+    
+    private AudioSource audioSource;
 
     private Vector3 forward, right;
     private Vector3 initialPosition;
@@ -21,12 +23,18 @@ public class KeplairCharacterController : MonoBehaviour
 
         forward = transform.forward;
         right = -transform.right;
+        
+        audioSource = GetComponent<AudioSource>();
     }
 
-    public void Speak()
+    public void Speak(AudioClip clip)
     {
+        audioSource.Stop();
         animator.ResetTrigger("Talk");
         animator.SetTrigger(("Talk"));
+        
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 
     private void Update()

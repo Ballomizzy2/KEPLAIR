@@ -19,5 +19,6 @@ MonoBehaviour:
   - optionText: I want to be an astronaut, but  I have to pass a test on polynomials.
     nextNodeId: 1
   resources: []
+  keplairSpeechClip: {fileID: 8300000, guid: 5653ec40f5f9e484f91304df6fbc2dae, type: 3}
   isLearnerProfileActivator: 0
   isLearningPathShowing: 0

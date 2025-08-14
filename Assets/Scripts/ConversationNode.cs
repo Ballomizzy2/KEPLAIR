@@ -10,6 +10,7 @@ public class ConversationNode : ScriptableObject
     public string messageText;
     public List<ConversationOption> options;
     public List<ConversationUI.ResourceLink> resources;
+    public AudioClip keplairSpeechClip;
 
     public bool isLearnerProfileActivator = false, isLearningPathShowing = true;
 }

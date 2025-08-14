@@ -15,7 +15,7 @@ public class WindowSwitchingManager : MonoBehaviour
     private ConversationUI conversationUI;
     
     [SerializeField]
-    private GameObject ChatBotWindow, LearningActivityWindow, LearningPathWindow, LearnerProfileWindow, NotebookWindow;
+    private GameObject ChatBotWindow, LearningActivityWindow, LearningPathWindow, LearningPathExtras, LearnerProfileWindow, NotebookWindow;
     
     // button switching
     [SerializeField]
@@ -50,6 +50,7 @@ public class WindowSwitchingManager : MonoBehaviour
         LearningPathWindow.SetActive(false);
         LearnerProfileWindow.SetActive(false);
         NotebookWindow.SetActive(false);
+        LearningPathExtras.SetActive(false);
         
         
         // button to highlight
@@ -58,6 +59,14 @@ public class WindowSwitchingManager : MonoBehaviour
         LearningPathButton.image.color = unselectedColor;
         LearningProfileButton.image.color = unselectedColor;
         NotebookButton.image.color = unselectedColor;
+
+        if (windowType != WindowType.LearningActivity)
+        {
+            // Close the webview
+            WebViewObject g = FindAnyObjectByType<WebViewObject>();
+            if(g)
+                Destroy(g.gameObject);
+        }
         
         
         switch (windowType)
@@ -69,6 +78,7 @@ public class WindowSwitchingManager : MonoBehaviour
                 break;
             case WindowType.LearningPath:
                 LearningPathWindow.SetActive(true);
+                LearningPathExtras.SetActive(true);
                 conversationUI.SwitchCamera(false);
                 LearningPathButton.image.color = selectedColor;
                 break;

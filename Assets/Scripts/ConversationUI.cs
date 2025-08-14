@@ -34,7 +34,7 @@ public class ConversationUI : MonoBehaviour
 
     void DisplayCurrentNode()
     {
-        keplairCharacterController.Speak();
+        //keplairCharacterController.Speak();
         speakerText.text = currentNode.speaker;
         messageText.text = currentNode.messageText;
         ClearOptions();
@@ -67,6 +67,12 @@ public class ConversationUI : MonoBehaviour
         if (currentNode.isLearningPathShowing)
         {
             windowSwitchingManager.OpenWindowTrigger(2);
+        }
+
+        if (currentNode.keplairSpeechClip != null)
+        {
+            keplairCharacterController.Speak(currentNode.keplairSpeechClip);
+            Debug.Log("Has Audio");
         }
     }
 

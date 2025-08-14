@@ -20,5 +20,6 @@ MonoBehaviour:
   - optionText: Okay
     nextNodeId: 2
   resources: []
+  keplairSpeechClip: {fileID: 8300000, guid: 1f38ac68dd6e1b34aae4e4284cc8f9e3, type: 3}
   isLearnerProfileActivator: 0
   isLearningPathShowing: 0
